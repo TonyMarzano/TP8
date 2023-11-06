@@ -1,0 +1,33 @@
+Para la creación del cluster de K8S utilicé minikube:
+minikube is local Kubernetes, focusing on making it easy to learn and develop for Kubernetes.
+All you need is Docker (or similarly compatible) container or a Virtual Machine environment
+
+Prerequisitos:
+    -2 CPUs or more
+    -2GB of free memory
+    -20GB of free disk space
+    -Internet connection
+    -Container or virtual machine manager, such as: Docker,
+
+Instalación Windows en mi caso:
+
+Descargar y correr el instalador de minikube:
+    New-Item -Path 'c:\' -Name 'minikube' -ItemType Directory -Force
+    Invoke-WebRequest -OutFile 'c:\minikube\minikube.exe' -Uri 'https://github.com/kubernetes/minikube/releases/latest/download/minikube-windows-amd64.exe' -UseBasicParsing
+
+Agregar el binario de minikube a mi Path:
+    $oldPath = [Environment]::GetEnvironmentVariable('Path', [EnvironmentVariableTarget]::Machine)
+    if ($oldPath.Split(';') -inotcontains 'C:\minikube'){
+        [Environment]::SetEnvironmentVariable('Path', $('{0};C:\minikube' -f $oldPath), [EnvironmentVariableTarget]::Machine)
+}
+ 
+
+
+Iniciar el Cluster:
+    minikube start
+
+Ya se puede comenzar a interactuar con el cluster:
+    kubectl get all
+
+
+La app que voy a desplegar se basa en el siguiente proyecto: https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
