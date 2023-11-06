@@ -31,3 +31,5 @@ Ya se puede comenzar a interactuar con el cluster:
 
 
 La app que voy a desplegar se basa en el siguiente proyecto: https://kubernetes.io/docs/tutorials/stateless-application/guestbook/
+
+DockerHub donde se encuentra la imágen que uso: https://hub.docker.com/repository/docker/santinotona/tp8/general
